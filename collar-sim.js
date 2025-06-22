@@ -49,9 +49,13 @@ else{
     mqttClient.on('error', function (error) {
         console.log(error);
     });
-
-    let lat = data[0].latitude;
-    let lon = data[0].longitude;
+    
+    let lat = 40.7718523597943;
+    let lon = -73.9748434211157;
+    if(data[0]){
+        lat = data[0].latitude;
+        lon = data[0].longitude;
+    }
 
     async function sendLocation() {
         lat += (Math.random() - 0.5) * 0.001;
